@@ -1,6 +1,8 @@
 package com.offcn.reptile.service;
 
+import com.offcn.reptile.domain.New;
 import com.offcn.reptile.vo.QueryVo;
+import org.springframework.data.solr.core.query.result.HighlightPage;
 
 import java.util.List;
 
@@ -12,6 +14,8 @@ import java.util.List;
  **/
 public interface SearchService {
 
-    List<QueryVo> search(String keywords,int pageNumber,int pageSize);
+    List<QueryVo> search(String keywords, int pageNumber, int pageSize, HighlightPage pageBean);
+
+    New searchById(String id);
 
 }

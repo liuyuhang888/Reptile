@@ -1,5 +1,7 @@
 package com.offcn.reptile.service.impl;
 
+import com.offcn.reptile.domain.New;
+import com.offcn.reptile.mappers.NewMapper;
 import com.offcn.reptile.service.SearchService;
 import com.offcn.reptile.vo.QueryVo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import org.springframework.data.solr.core.query.result.HighlightPage;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -27,8 +30,13 @@ public class SearchServiceImpl implements SearchService {
     @Autowired
     private SolrTemplate solrTemplate;
 
+    @Autowired
+    private NewMapper mapper;
+
     @Override
-    public List<QueryVo> search(String keywords, int pageNumber, int pageSize) {
+    public List<QueryVo> search(String keywords, int pageNumber, int pageSize, HighlightPage pageBean) {
+
+        HashMap<String,Object> map = new HashMap<>();
         //构造高亮查询器
         SimpleHighlightQuery query = new SimpleHighlightQuery();
         //高亮查询的使用标签和高亮的字段
@@ -49,6 +57,8 @@ public class SearchServiceImpl implements SearchService {
         query.addCriteria(new Criteria("keyWords").is(keywords));
 
         HighlightPage<QueryVo> highlightPage = solrTemplate.queryForHighlightPage("collection1", query, QueryVo.class);
+
+        pageBean = highlightPage;
 
         //合并的列表
         List<QueryVo> list = new ArrayList<>();
@@ -73,6 +83,12 @@ public class SearchServiceImpl implements SearchService {
             }
             list.add(queryVo);
         }
+
         return list;
+    }
+
+    @Override
+    public New searchById(String id) {
+        return mapper.selectByPrimaryKey(id);
     }
 }

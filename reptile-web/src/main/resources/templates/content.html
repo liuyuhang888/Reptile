@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="新闻"></title>
+    <link rel="stylesheet" type="text/css"
+          href="../../css/gtvg.css" th:href="@{/lib/layui-v2.5.5/css/layui.css}" />
+</head>
+<body>
+
+    <div class="layui-container">
+        <h1 th:utext="${searchNew.getTitle()}"></h1>
+        <hr/>
+        <div th:utext="${searchNew.getContent()}"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>将提交按钮做成图片</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/search.css}" href="/css/search.css"/>
+</head>
+
+<body>
+<!-- 将按提交按钮 和文本框放在一个同盒子里 通过定位是调整它们的位置 -->
+<form action="/search/key" method="get">
+    <div class="box">
+        <input name="keywords" type="text" placeholder="请输入搜索内容" id="text">
+        <input id="search" type="submit" value="搜索">
+    </div>
+</form>
+</body>
+
+</html>

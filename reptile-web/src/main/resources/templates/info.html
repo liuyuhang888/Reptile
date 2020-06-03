@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Good Thymes Virtual Grocery</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css"
+          href="../../css/gtvg.css" th:href="@{/lib/layui-v2.5.5/css/layui.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/info.css}" href="css/info.css">
+</head>
+<body>
+
+<form action="/search/key" method="get">
+    <div class="box">
+        <input name="keywords" type="text" placeholder="请输入搜索内容" id="text">
+        <input id="search" type="submit" value="搜索">
+    </div>
+</form>
+
+<div class="layui-container">
+    <div th:each="news:${searchList}">
+        <p th:utext="${news.getId()}"></p>
+        <h2><a th:href="'/search/id?id='+${news.getId()}" th:utext="${news.getTitle_ik()}"></a></h2>
+        <p th:utext="${news.getIntro_ik()}"></p>
+        <hr>
+    </div>
+</div>
+
+</body>
+</html>
