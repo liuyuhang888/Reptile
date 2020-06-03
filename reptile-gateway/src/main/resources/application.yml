@@ -1,0 +1,22 @@
+server:
+  port: 9527
+spring:
+  application:
+    name: reptile-gateway
+  cloud:
+    gateway:
+      enabled: true
+      routes:
+        - id: data_routh
+          uri: lb://reptile-data
+          predicates:
+            - Path=/tencent/data
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+    fetch-registry: true
+    register-with-eureka: true
+  instance:
+    prefer-ip-address: true
+    instance-id: gateway9527

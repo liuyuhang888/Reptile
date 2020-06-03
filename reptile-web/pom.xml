@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>reptile-manage</artifactId>
+        <groupId>com.offcn</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>reptile-web</artifactId>
+
+    <dependencies>
+<!--        通用包-包含web-starter hutool工具包-->
+        <dependency>
+            <groupId>com.offcn</groupId>
+            <artifactId>reptile-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+<!--        注册中心客户端-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+<!--        监控客户端-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+<!--        通用mapper(内部集成mybaits)-->
+        <dependency>
+            <groupId>tk.mybatis</groupId>
+            <artifactId>mapper-spring-boot-starter</artifactId>
+        </dependency>
+<!--       jdbc -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+<!--        分页插件-->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <exclusions>
+                <exclusion>
+                    <artifactId>mybatis-spring</artifactId>
+                    <groupId>org.mybatis</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>mybatis</artifactId>
+                    <groupId>org.mybatis</groupId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.mybatis.spring.boot</groupId>
+                    <artifactId>mybatis-spring-boot-autoconfigure</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+<!--        druid数据源-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+        </dependency>
+<!--        jedis-->
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.68</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-solr</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>
