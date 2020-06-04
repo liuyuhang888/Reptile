@@ -7,6 +7,7 @@ import com.offcn.reptile.service.NewService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -43,6 +44,7 @@ public class NewServiceImpl implements NewService {
     }
 
     @Override
+    @Scheduled(cron = "0 */20 * * * ?")
     public void addNewForRedis() {
         //从redis里获取数据
         List<String> news = redisTemplate.opsForHash().values("NEWS");

@@ -21,5 +21,6 @@ class SearchServiceImplTest {
     void search() {
         //List<QueryVo> queryVoList = searchService.search("袁姗姗", 0, 10);
         //queryVoList.forEach(System.out::println);
+
     }
 }
